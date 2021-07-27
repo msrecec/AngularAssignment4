@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class GameControlComponent implements OnInit {
   @Output() start = new EventEmitter<number>();
   buff?: number;
-  ref?: NodeJS.Timeout;
+  ref?: number;
 
   constructor() {}
 
@@ -22,7 +22,7 @@ export class GameControlComponent implements OnInit {
    */
 
   onStart() {
-    this.ref = setInterval((buffer = this.buff) => {
+    this.ref = window.setInterval((buffer = this.buff) => {
       if (typeof buffer != 'undefined') {
         buffer++;
       } else {
