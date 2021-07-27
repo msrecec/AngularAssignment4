@@ -1,3 +1,11 @@
-<div>
-  <app-game-control></app-game-control>
+<div class="container">
+  <div class="row">
+    <app-game-control (increment)="onIncrement($event)"></app-game-control>
+  </div>
+  <div class="row" *ngFor="let buffer of buffers; let i = index" [attr.data-index]='i'>
+    <app-even *ngIf='i%2 == 0; else other'></app-even>
+    <ng-template #other>
+      <app-odd></app-odd>
+    </ng-template>
+  </div>
 </div>

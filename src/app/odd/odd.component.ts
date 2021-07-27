@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-odd',
   templateUrl: './odd.component.html',
-  styleUrls: ['./odd.component.css']
+  styleUrls: ['./odd.component.css'],
 })
 export class OddComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    console.log('Initializing app odd');
   }
-
 }

@@ -6,7 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./game-control.component.css'],
 })
 export class GameControlComponent implements OnInit {
-  @Output() start = new EventEmitter<number>();
+  @Output() increment = new EventEmitter<number>();
   buff?: number;
   ref?: number;
 
@@ -22,14 +22,16 @@ export class GameControlComponent implements OnInit {
    */
 
   onStart() {
-    this.ref = window.setInterval((buffer = this.buff) => {
-      if (typeof buffer != 'undefined') {
-        buffer++;
+    this.ref = window.setInterval(() => {
+      if (typeof this.buff != 'undefined') {
+        this.buff++;
+        console.log(`Incremented buffer: ${this.buff}`);
       } else {
         console.error('Buffer was undefined, initializing on 0');
-        buffer = 0;
+        this.buff = 0;
+        console.log(`Initialized buffer: ${this.buff}`);
       }
-      this.start.emit(buffer);
+      this.increment.emit(this.buff);
     }, 1000);
   }
 

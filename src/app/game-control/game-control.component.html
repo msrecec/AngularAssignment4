@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
-    <button (click)="onStart()">Start</button>
-    <button (click)="onEnd()">Stop</button>
+    <div class="col-12">
+      <div class="d-flex justify-content-center">
+        <button style="margin: 1px" class="btn btn-danger btn-space" (click)="onEnd()">Stop</button>
+        <button style="margin: 1px" class="btn btn-primary btn-space" (click)="onStart()">Start</button>
+      </div>
+    </div>
   </div>
 </div>
